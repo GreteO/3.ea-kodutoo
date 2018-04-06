@@ -14,6 +14,6 @@ chrome.storage.sync.get('color', function(data) {
 changeColor.onclick = function(element) {
   let color = element.target.value;
     chrome.tabs.executeScript(
-        tabs[0].id,
+      //Saab muuta  hetkel avatud lehel olevat sisu, saab anda ka faili
         {code: 'document.body.style.backgroundColor = "' + color + '";'});
 };

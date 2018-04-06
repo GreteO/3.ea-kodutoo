@@ -8,6 +8,16 @@
     "scripts": ["background.js"],
     "persistent": false
   },
+  //Ei tööta?
+  "content_scripts": [
+    {
+      "matches": ["https://*/*"],
+      "css": ["style.css"],
+      "js": ["popup.js"] //pole kindel mis siin olema pidi
+    }
+  ],
+  //kuni siiani
+
   "page_action": {
     "default_popup": "popup.html",
     "default_icon": {

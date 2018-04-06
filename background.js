@@ -4,10 +4,11 @@
 
 'use strict';
 
-chrome.runtime.onInstalled.addListener(function() {
+chrome.runtime.onInstalled.addListener(function() { //kõik brauseriga seotud chrome. jne
   chrome.storage.sync.set({color: '#3aa757'}, function() {
     console.log('The color is green.');
   });
+  //Töötab ainult ühel kindlal leheküljel:
   chrome.declarativeContent.onPageChanged.removeRules(undefined, function() {
     chrome.declarativeContent.onPageChanged.addRules([{
       conditions: [new chrome.declarativeContent.PageStateMatcher({
