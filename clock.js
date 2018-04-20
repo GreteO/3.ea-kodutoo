@@ -26,6 +26,7 @@ function changeBackground(){
     document.body.style.backgroundImage = 'url("pics/haapsalukallas.jpg")';
 	//document.body.style.backgroundSize = cover;
   }
+  // file uploader lisada listi 
 }
 
 function changeColor(){
