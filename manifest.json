@@ -9,11 +9,12 @@
     "persistent": false
   },
   //Ei tööta?
+  //"content_security_policy":"script-src 'self' https://www.gstatic.com/ https://*.firebaseio.com https://www.googleapis.com; object-src 'self'",
   "content_scripts": [
     {
       "matches": ["https://*/*"],
-      "css": ["style.css"],
-      "js": ["popup.js"] //pole kindel mis siin olema pidi
+      "css": ["style.css"]
+    //  "js": ["script.js"] pole kindel mis siin olema pidi
     }
   ],
   //kuni siiani
