@@ -1,38 +1,14 @@
 {
-  "name": "Getting Started Example",
+  "name": "My clock new tab page",
+  "description": "Override the new tab page with my clock",
   "version": "1.0",
-  "description": "Build an Extension!",
-  "permissions": ["activeTab", "declarativeContent", "storage"],
-  "options_page": "options.html",
-  "background": {
-    "scripts": ["background.js"],
-    "persistent": false
+  "incognito": "split",
+  "chrome_url_overrides": {
+    "newtab": "clock.html" 
   },
-  //Ei tööta?
-  //"content_security_policy":"script-src 'self' https://www.gstatic.com/ https://*.firebaseio.com https://www.googleapis.com; object-src 'self'",
-  "content_scripts": [
-    {
-      "matches": ["https://*/*"],
-      "css": ["style.css"]
-    //  "js": ["script.js"] pole kindel mis siin olema pidi
-    }
-  ],
-  //kuni siiani
-
-  "page_action": {
-    "default_popup": "popup.html",
-    "default_icon": {
-      "16": "images/get_started16.png",
-      "32": "images/get_started32.png",
-      "48": "images/get_started48.png",
-      "128": "images/get_started128.png"
-    }
+  "browser_action": {
+    "default_icon": "icon.png"
   },
-  "icons": {
-    "16": "images/get_started16.png",
-    "32": "images/get_started32.png",
-    "48": "images/get_started48.png",
-    "128": "images/get_started128.png"
-  },
+  
   "manifest_version": 2
 }
