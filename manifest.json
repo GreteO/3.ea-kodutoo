@@ -3,12 +3,13 @@
   "description": "Override the new tab page with my clock",
   "version": "1.0",
   "incognito": "split",
+  "permissions": ["bookmarks"],
   "chrome_url_overrides": {
     "newtab": "clock.html" 
   },
   "browser_action": {
     "default_icon": "icon.png"
   },
-  
+
   "manifest_version": 2
 }
