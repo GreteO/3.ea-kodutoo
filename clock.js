@@ -1,5 +1,6 @@
 // Avalikud muutujad
 let clockContainer 
+let newRandomBookmark
 
 window.onload = function () {
   init()
@@ -7,7 +8,9 @@ window.onload = function () {
   document.getElementById('smaller').addEventListener("click", changeSizeSmaller)
   document.getElementById('time').addEventListener("change", changeBackground)
   document.getElementById('color').addEventListener("change", changeColor)
-  process_bookmark()
+  //process_bookmark()
+
+
 }
 
 function init () {
@@ -15,27 +18,43 @@ function init () {
   console.log(clockContainer)
  startClock()
  
+ newRandomBookmark = document.getElementById('bookmark')
+ console.log(newRandomBookmark)  
+ createBookmarksArray()
+ randomBookmark()
 }
 
+let bookmarksArray = []
 function process_bookmark(bookmarks) {
-
-  for (var i =0; i < bookmarks.length; i++) {
- 
-       var bookmark = bookmarks[i];
+  for (let i =0; i < bookmarks.length; i++) {
+       let bookmark = bookmarks[i]
        if (bookmark.url) {
-           console.log("bookmark: "+ bookmark.title + " ~  " + bookmark.url);
+           bookmarksArray.push(bookmark.url)
+           //console.log("bookmark: "+ bookmark.title + " ~  " + bookmark.url)
        }
  
        if (bookmark.children) {
            process_bookmark(bookmark.children);
        }
    }
+   randomBookmark()
  }
  
- chrome.browserAction.onClicked.addListener(function(tab) {
- console.log("listing bookmarks: " );
- chrome.bookmarks.getTree( process_bookmark );
- });
+ //chrome.browserAction.onClicked.addListener(function(tab) {
+ //console.log("listing bookmarks: " );
+ function createBookmarksArray(){
+ chrome.bookmarks.getTree(process_bookmark)
+ }
+
+ function randomBookmark(){
+  bookmark.url = bookmarksArray[Math.floor(Math.random()*bookmarksArray.length)]
+   // console.log("bookmark: "+ bookmark.title + " ~  " + bookmark.url)
+   //console.log(bookmarksArray[Math.floor(Math.random()*bookmarksArray.length)])
+   newRandomBookmark.innerHTML = bookmark.url
+   //document.getElementById('bookmark').addEventListener('click', window.open(bookmark.url))
+ }
+
+ //console.log(window.location.href = bookmarksArray[Math.floor(Math.random()*bookmarksArray.length)])
 
 function changeBackground(){
   if (this.value == "day"){
