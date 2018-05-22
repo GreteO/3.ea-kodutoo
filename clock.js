@@ -8,29 +8,28 @@ window.onload = function () {
   document.getElementById('smaller').addEventListener("click", changeSizeSmaller)
   document.getElementById('time').addEventListener("change", changeBackground)
   document.getElementById('color').addEventListener("change", changeColor)
-  //process_bookmark()
-
-
 }
 
 function init () {
   clockContainer = document.querySelector('#clock')
   console.log(clockContainer)
- startClock()
+  startClock()
  
- newRandomBookmark = document.getElementById('bookmark')
- console.log(newRandomBookmark)  
- createBookmarksArray()
- randomBookmark()
+  newRandomBookmark = document.getElementById('bookmark')
+  createBookmarksArray()
+
+  document.getElementById('bookmark').addEventListener('click', function(){
+    window.open(newRandomBookmark.innerHTML)
+  })
 }
 
+//Random bookmark'ide koodiviide: https://stackoverflow.com/questions/43068431/get-a-random-url-from-chrome-bookmarks-and-load-it-in-newtab/43070791
 let bookmarksArray = []
 function process_bookmark(bookmarks) {
-  for (let i =0; i < bookmarks.length; i++) {
+  for (let i = 0; i < bookmarks.length; i++) {
        let bookmark = bookmarks[i]
        if (bookmark.url) {
            bookmarksArray.push(bookmark.url)
-           //console.log("bookmark: "+ bookmark.title + " ~  " + bookmark.url)
        }
  
        if (bookmark.children) {
@@ -39,22 +38,16 @@ function process_bookmark(bookmarks) {
    }
    randomBookmark()
  }
- 
- //chrome.browserAction.onClicked.addListener(function(tab) {
- //console.log("listing bookmarks: " );
+
  function createBookmarksArray(){
  chrome.bookmarks.getTree(process_bookmark)
  }
 
  function randomBookmark(){
   bookmark.url = bookmarksArray[Math.floor(Math.random()*bookmarksArray.length)]
-   // console.log("bookmark: "+ bookmark.title + " ~  " + bookmark.url)
-   //console.log(bookmarksArray[Math.floor(Math.random()*bookmarksArray.length)])
-   newRandomBookmark.innerHTML = bookmark.url
-   //document.getElementById('bookmark').addEventListener('click', window.open(bookmark.url))
- }
+  newRandomBookmark.innerHTML = bookmark.url
 
- //console.log(window.location.href = bookmarksArray[Math.floor(Math.random()*bookmarksArray.length)])
+ }
 
 function changeBackground(){
   if (this.value == "day"){

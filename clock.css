@@ -18,6 +18,26 @@ button, select{
 	padding: 5px 10px;
 	box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
   }
+  
+p{
+    font-size:25px;
+    text-shadow: 3px 3px 3px rgb(146, 142, 133);
+    font-family: 'Nanum Myeongjo', serif;
+}
+
+.randomBm{
+    position: relative;
+    top: 250px;
+    text-align: center;
+}
+.random{
+    font-size:25px;
+    text-decoration: underline;
+    cursor: auto;
+    text-shadow: 3px 3px 3px rgb(146, 142, 133);
+    font-family: 'Nanum Myeongjo', serif;
+}
+
 #clock {
     color:white;
 	position: relative;
