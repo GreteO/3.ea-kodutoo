@@ -13,12 +13,14 @@
 
 </head>
 <body>
-
+   
   <select id="time" class="input"  >
-    <option value="day">Päev</option>
-    <option value="night">Öö</option>
-    <option value="valitud">Vali oma pilt</option>
+    <option >Vali taust</option>
+    <option value="day">Hele taust</option>
+    <option value="night">Tume taust</option>
+    
   </select>
+  
   <select id="color"  class="input">
     <option value="default">Vali teksti värv</option>
     <option value="navy">sinine</option>
@@ -33,7 +35,13 @@
   
   <button id="bigger" >Tekst suuremaks</button>
   <button id="smaller" >Tekst väiksemaks</button>
+<br><br>
+  <div>
+      <label for="choose" class="btn">Vali oma taustapilt</label>
+      <input id="choose" type="file" style="visibility:hidden;" />
+  </div>
   
+
   <div id="clock"></div>
   
   <div class = "randomBm">

@@ -8,6 +8,8 @@ window.onload = function () {
   document.getElementById('smaller').addEventListener("click", changeSizeSmaller)
   document.getElementById('time').addEventListener("change", changeBackground)
   document.getElementById('color').addEventListener("change", changeColor)
+  document.getElementById('choose').addEventListener("click", insertBackground)
+  
 }
 
 function init () {
@@ -49,6 +51,12 @@ function process_bookmark(bookmarks) {
 
  }
 
+ function insertBackground(){
+  let pic = document.getElementById("choose").submit();
+  document.body.style.backgroundImage = 'url("'+pic+'")';
+  
+ }
+
 function changeBackground(){
   if (this.value == "day"){
     document.body.style.backgroundImage = 'url("pics/kosk.jpg")';
@@ -58,7 +66,7 @@ function changeBackground(){
     document.body.style.backgroundImage = 'url("pics/haapsalukallas.jpg")';
 	//document.body.style.backgroundSize = cover;
   }
-  // file uploader lisada listi 
+  
 }
 
 function changeColor(){
