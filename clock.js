@@ -54,10 +54,12 @@ function process_bookmark(bookmarks) {
 
  function insertBackground(){
   //let pic = document.getElementById("choose").value;
-  let pic = document.getElementById("choose").files[0].name;
-  console.log(pic)
-  document.body.style.backgroundImage = 'url("'+pic+'")';
-  console.log(document.body.style.backgroundImage)
+  let pic = document.getElementById("choose").files[0];
+  
+  window.picURL = URL.createObjectURL(pic);
+  //console.log(picURL)
+  document.body.style.backgroundImage = 'url("'+picURL+'")';
+  //console.log(document.body.style.backgroundImage)
  }
 
 
