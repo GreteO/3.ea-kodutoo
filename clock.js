@@ -2,14 +2,15 @@
 let clockContainer 
 let newRandomBookmark
 
+
 window.onload = function () {
   init()
   document.getElementById('bigger').addEventListener("click", changeSizeBigger)
   document.getElementById('smaller').addEventListener("click", changeSizeSmaller)
   document.getElementById('time').addEventListener("change", changeBackground)
   document.getElementById('color').addEventListener("change", changeColor)
-  document.getElementById('choose').addEventListener("click", insertBackground)
-  
+  //document.getElementById('choose').addEventListener("click", insertBackground)
+  document.getElementById('choose').addEventListener("change", insertBackground)
 }
 
 function init () {
@@ -52,21 +53,24 @@ function process_bookmark(bookmarks) {
  }
 
  function insertBackground(){
-  let pic = document.getElementById("choose").submit();
+  //let pic = document.getElementById("choose").value;
+  let pic = document.getElementById("choose").files[0].name;
+  console.log(pic)
   document.body.style.backgroundImage = 'url("'+pic+'")';
-  
+  console.log(document.body.style.backgroundImage)
  }
+
 
 function changeBackground(){
   if (this.value == "day"){
     document.body.style.backgroundImage = 'url("pics/kosk.jpg")';
-	//document.body.style.backgroundSize = cover;
+  //document.body.style.backgroundSize = cover;
+  console.log(document.body.style.backgroundImage)
   } 
   if (this.value == "night"){
     document.body.style.backgroundImage = 'url("pics/haapsalukallas.jpg")';
-	//document.body.style.backgroundSize = cover;
+  //document.body.style.backgroundSize = cover;
   }
-  
 }
 
 function changeColor(){
